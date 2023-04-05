@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlternatifsTable extends Migration
+class CreateTopsesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAlternatifsTable extends Migration
      */
     public function up()
     {
-        Schema::create('alternatifs', function (Blueprint $table) {
+        Schema::create('topses', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateAlternatifsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alternatifs');
+        Schema::dropIfExists('topses');
     }
 }
