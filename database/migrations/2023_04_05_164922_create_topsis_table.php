@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTopsesTable extends Migration
+class CreateTopsisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateTopsesTable extends Migration
      */
     public function up()
     {
-        Schema::create('topses', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('topsis', function (Blueprint $table) {
+            $table->bigInteger('kriteria_id');
+            $table->bigInteger('alternatif_id');
+            $table->integer('nilai');
         });
     }
 
@@ -26,6 +27,6 @@ class CreateTopsesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topses');
+        Schema::dropIfExists('topsis');
     }
 }
