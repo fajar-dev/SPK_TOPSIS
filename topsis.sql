@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 13, 2020 at 01:29 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Host: localhost:3306
+-- Waktu pembuatan: 07 Apr 2023 pada 18.21
+-- Versi server: 5.7.33
+-- Versi PHP: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `spk_bus`
+-- Database: `topsis`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tab_alternatif`
+-- Struktur dari tabel `tab_alternatif`
 --
 
 CREATE TABLE `tab_alternatif` (
@@ -34,19 +33,18 @@ CREATE TABLE `tab_alternatif` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tab_alternatif`
+-- Dumping data untuk tabel `tab_alternatif`
 --
 
 INSERT INTO `tab_alternatif` (`id_alternatif`, `nama_alternatif`) VALUES
-('1', 'Karung 1'),
-('2', 'Karung 2'),
-('3', 'Karung 3'),
-('4', 'Karung 4');
+('1', 'Fajar'),
+('2', 'sukma'),
+('3', 'brucel');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tab_kriteria`
+-- Struktur dari tabel `tab_kriteria`
 --
 
 CREATE TABLE `tab_kriteria` (
@@ -57,20 +55,17 @@ CREATE TABLE `tab_kriteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tab_kriteria`
+-- Dumping data untuk tabel `tab_kriteria`
 --
 
 INSERT INTO `tab_kriteria` (`id_kriteria`, `nama_kriteria`, `bobot`, `status`) VALUES
-('1', 'Kadar air', 4, 'Cost'),
-('2', 'Kadar kotoran', 4, 'Cost'),
-('3', 'Nilai cacat', 4, 'Cost'),
-('4', 'Ukuran', 3, 'Benefit'),
-('5', 'Bau biji', 4, 'Benefit');
+('1', 'Gaji', 5, 'Cost'),
+('2', 'BPJS', 1, 'Benefit');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tab_topsis`
+-- Struktur dari tabel `tab_topsis`
 --
 
 CREATE TABLE `tab_topsis` (
@@ -80,57 +75,40 @@ CREATE TABLE `tab_topsis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tab_topsis`
+-- Dumping data untuk tabel `tab_topsis`
 --
 
 INSERT INTO `tab_topsis` (`id_alternatif`, `id_kriteria`, `nilai`) VALUES
-('1', '1', 3),
-('1', '2', 4),
-('1', '3', 7),
-('1', '4', 2),
-('1', '5', 2),
-('2', '1', 3),
-('2', '2', 1),
-('2', '3', 4),
-('2', '4', 1),
-('2', '5', 2),
-('3', '1', 2),
-('3', '2', 1),
-('3', '3', 6),
-('3', '4', 2),
-('3', '5', 2),
-('4', '1', 1),
-('4', '2', 1),
-('4', '3', 4),
-('4', '4', 1),
-('4', '5', 2);
+('1', '1', 2000000),
+('1', '2', 1000000),
+('2', '1', 5000000),
+('2', '2', 2000000),
+('3', '1', 30000000),
+('3', '2', 1000000);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tab_alternatif`
+-- Indeks untuk tabel `tab_alternatif`
 --
 ALTER TABLE `tab_alternatif`
   ADD PRIMARY KEY (`id_alternatif`);
 
 --
--- Indexes for table `tab_kriteria`
+-- Indeks untuk tabel `tab_kriteria`
 --
 ALTER TABLE `tab_kriteria`
   ADD PRIMARY KEY (`id_kriteria`);
 
 --
--- Indexes for table `tab_topsis`
+-- Indeks untuk tabel `tab_topsis`
 --
 ALTER TABLE `tab_topsis`
   ADD PRIMARY KEY (`id_alternatif`,`id_kriteria`),
   ADD KEY `id_kriteria` (`id_kriteria`);
-
---
--- Constraints for dumped tables
---
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
